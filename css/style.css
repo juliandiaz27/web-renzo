@@ -1,0 +1,149 @@
+:root {
+  --hh-accent-yellow: #fbd80d;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+.butcher-gradient {
+  background: linear-gradient(135deg, #dd180d 0%, #690000 100%);
+}
+
+.glass-panel {
+  background: rgba(14, 14, 14, 0.7);
+  backdrop-filter: blur(16px);
+}
+
+body {
+  background-color: #131313;
+  color: #e5e2e1;
+  font-family: "Manrope", sans-serif;
+}
+
+.headline-font {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.text-shadow-industrial {
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Header vidrio sobre el hero */
+.site-header {
+  background: rgba(10, 10, 10, 0.68);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Marca nav: óvalo H&H | FRIGORIFICO | bandera */
+.logo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.logo-brand__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
+
+.logo-brand__img {
+  height: 50px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .logo-brand__img {
+    height: 56px;
+  }
+}
+
+.logo-brand__divider {
+  width: 1px;
+  height: 2.25rem;
+  flex-shrink: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(210, 210, 220, 0.5) 48%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.4);
+}
+
+.logo-brand__wordmark {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 2.2vw, 1.3rem);
+  letter-spacing: 0.14em;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
+}
+
+.logo-brand__flag-wrap {
+  display: flex;
+  align-items: center;
+  margin-left: 0.1rem;
+}
+
+.logo-brand__flag {
+  height: 1.3rem;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 2px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+}
+
+@media (min-width: 768px) {
+  .logo-brand__flag {
+    height: 1.45rem;
+  }
+}
+
+/* Header móvil: marca más compacta + menú */
+@media (max-width: 767px) {
+  .logo-brand {
+    gap: 0.35rem;
+    max-width: min(58vw, 220px);
+    min-width: 0;
+  }
+
+  .logo-brand__img {
+    height: 40px;
+  }
+
+  .logo-brand__wordmark {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  .logo-brand__divider {
+    height: 1.75rem;
+  }
+
+  .logo-brand__flag {
+    height: 1.05rem;
+  }
+}
+
+body.site-nav-open {
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  body.site-nav-open {
+    overflow: unset;
+  }
+}
