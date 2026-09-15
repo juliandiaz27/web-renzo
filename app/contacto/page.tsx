@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ContactChannels } from "@/components/ContactChannels";
 import { ContactForm } from "@/components/ContactForm";
 import { Icon } from "@/components/Icon";
+import { Locations } from "@/components/Locations";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Consultas, mayoristas y reservas. Teléfono, WhatsApp y mostrador en Rodo 6483, Mataderos.",
+    "Consultas, mayoristas y reservas. Planta en Mataderos y sucursales de carnicería.",
 };
 
 export default function ContactoPage() {
@@ -36,6 +38,8 @@ export default function ContactoPage() {
           </div>
         </div>
       </section>
+
+      <ContactChannels />
 
       <section className="px-8 max-w-[1920px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-px bg-[#ffffff15] border border-[#ffffff15]">
@@ -119,65 +123,7 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      <section id="ubicacion" className="mt-20 px-6 sm:px-8 max-w-[1920px] mx-auto scroll-mt-28">
-        <div className="mb-10 md:mb-12 lg:mb-14">
-          <div className="max-w-2xl">
-            <h2 className="headline-font text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
-              Dónde estamos
-            </h2>
-            <p className="font-['Space_Grotesk'] mt-3 text-sm uppercase tracking-[0.2em] text-hh-yellow/90">
-              {site.address} · {site.neighborhood}
-            </p>
-            <p className="text-on-surface-variant mt-5 max-w-xl text-base leading-relaxed">
-              Mostrador, mayoristas y envíos a {site.shipping}. Tel. {site.phone} o WhatsApp cuando
-              quieras coordinar.
-            </p>
-          </div>
-          <a
-            className="mt-8 inline-flex items-center gap-2 text-hh-yellow headline-font text-sm font-bold tracking-widest uppercase border-b border-hh-yellow/70 pb-1 hover:text-[#fff9ef] hover:border-[#fff9ef] transition-colors"
-            href={site.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="directions" className="text-base" />
-            Abrir en Google Maps
-          </a>
-        </div>
-        <div className="flex flex-col gap-8 lg:gap-10 lg:flex-row lg:items-stretch">
-          <div className="relative min-h-[300px] h-[360px] sm:min-h-[380px] lg:h-auto lg:min-h-[min(70vh,560px)] lg:flex-1 overflow-hidden rounded-[1.75rem] bg-surface-container-highest shadow-[0_28px_80px_rgba(0,0,0,0.4)] ring-1 ring-white/[0.07]">
-            <iframe
-              title="Mapa: Frigorífico H&H, Rodo 6483, Mataderos"
-              className="absolute inset-0 w-full h-full border-0 grayscale-[0.12] contrast-[1.02]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              src={site.mapsEmbed}
-            />
-          </div>
-          <div className="relative flex min-h-[400px] flex-col overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#161616] via-[#0c0c0c] to-[#060606] shadow-[0_28px_80px_rgba(0,0,0,0.35)] ring-1 ring-white/[0.07] lg:flex-1 group">
-            <div className="flex flex-1 min-h-0 items-center justify-center px-6 py-10 sm:px-10 sm:py-12 lg:py-10 min-h-[260px]">
-              <Image
-                alt="Entrada del Frigorífico H&H"
-                className="h-auto w-full max-h-[min(68vh,620px)] max-w-[min(100%,400px)] rounded-lg object-contain object-center shadow-[0_20px_60px_rgba(0,0,0,0.55)] transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                src="/images/entrada-banner.jpeg"
-                width={880}
-                height={1320}
-              />
-            </div>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#060606] via-[#060606]/80 to-transparent" />
-            <div className="relative z-10 px-7 pb-8 pt-4 sm:px-9 sm:pb-9">
-              <p className="headline-font text-xs tracking-[0.25em] text-hh-yellow font-bold uppercase mb-2">
-                Nuestra entrada
-              </p>
-              <h3 className="headline-font text-xl sm:text-2xl font-black uppercase text-[#fff9ef] mb-2">
-                Frigorífico H&H
-              </h3>
-              <p className="text-[#fff9ef]/90 text-sm max-w-md leading-relaxed">
-                Pasá por el mostrador: te ayudamos a elegir el corte justo.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Locations />
 
       <section className="mt-20 px-8 max-w-[1920px] mx-auto overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#ffffff15]">

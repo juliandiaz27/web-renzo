@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: site.name,
     description:
-      "Selección de cortes vacunos en Mataderos, CABA. Catálogo de exhibición y contacto por WhatsApp.",
+      "Selección de cortes vacunos en Mataderos, CABA. Contacto por WhatsApp y retiro en sucursales.",
     locale: "es_AR",
     type: "website",
   },

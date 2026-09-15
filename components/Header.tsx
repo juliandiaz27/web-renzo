@@ -10,7 +10,6 @@ import { site } from "@/lib/site";
 const navItems = [
   { href: "/", label: "Inicio 1" },
   { href: "/inicio-2", label: "Inicio 2" },
-  { href: "/catalogo", label: "Catálogo" },
   { href: "/contacto", label: "Contacto" },
 ] as const;
 

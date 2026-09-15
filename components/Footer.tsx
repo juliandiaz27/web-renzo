@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { locations, site } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -18,18 +18,16 @@ export function Footer() {
         </div>
         <div className="space-y-4">
           <h4 className="font-['Space_Grotesk'] uppercase text-xs tracking-[0.2em] font-bold text-on-background">
-            Ubicación
+            Sucursales
           </h4>
-          <ul className="space-y-2">
-            <li className="font-['Space_Grotesk'] uppercase text-xs tracking-widest text-[#fff9ef] opacity-60">
-              {site.address}
-            </li>
-            <li className="font-['Space_Grotesk'] uppercase text-xs tracking-widest text-[#fff9ef] opacity-60">
-              {site.neighborhood}
-            </li>
-            <li className="font-['Space_Grotesk'] uppercase text-xs tracking-widest text-[#fff9ef] opacity-80">
-              Envíos: {site.shipping}
-            </li>
+          <ul className="space-y-3">
+            {locations.map((place) => (
+              <li key={place.id} className="font-['Space_Grotesk'] uppercase text-xs tracking-widest text-[#fff9ef] opacity-60 leading-relaxed">
+                <span className="block text-hh-yellow/80 opacity-100">{place.kind}</span>
+                {place.name}
+                <span className="block opacity-80">{place.area}</span>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="space-y-4">
@@ -37,8 +35,11 @@ export function Footer() {
             Horarios
           </h4>
           <ul className="space-y-2">
-            <li className="font-['Space_Grotesk'] uppercase text-xs tracking-widest text-[#fff9ef] opacity-60">
-              {site.hours}
+            <li className="font-['Space_Grotesk'] uppercase text-xs tracking-widest text-[#fff9ef] opacity-60 leading-relaxed">
+              Planta: {site.hoursPlant}
+            </li>
+            <li className="font-['Space_Grotesk'] uppercase text-xs tracking-widest text-[#fff9ef] opacity-60 leading-relaxed">
+              Carnicerías: {site.hoursCarniceria}
             </li>
           </ul>
         </div>

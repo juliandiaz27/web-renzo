@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ContactChannels } from "@/components/ContactChannels";
 import { CoverImage } from "@/components/CoverImage";
 import { Icon } from "@/components/Icon";
+import { Locations } from "@/components/Locations";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -49,18 +51,21 @@ export default function HomePage() {
               >
                 HACÉ TU PEDIDO
               </Link>
-              <Link
-                href="/catalogo"
+              <a
+                href="#destacados"
                 className="inline-flex items-center justify-center border-2 border-[#fff9ef]/80 bg-black/20 px-10 sm:px-12 py-5 text-[#fff9ef] font-black headline-font tracking-widest uppercase hover:bg-white/10 transition-all active:scale-95"
               >
                 VER CORTES
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 sm:py-28 md:py-32 px-4 sm:px-8 lg:px-12 bg-background">
+      <section
+        id="destacados"
+        className="scroll-mt-28 py-20 sm:py-28 md:py-32 px-4 sm:px-8 lg:px-12 bg-background"
+      >
         <div className="container mx-auto">
           <div className="mb-12 sm:mb-16 w-full">
             <h2 className="headline-font text-[clamp(1.55rem,6vw,3rem)] sm:text-4xl md:text-5xl font-black uppercase tracking-tighter leading-[1.05]">
@@ -93,9 +98,9 @@ export default function HomePage() {
                 </p>
                 <Link
                   className="text-[#ff8f84] headline-font text-sm font-bold tracking-[0.2em] border-b-2 border-[#dd180d] pb-1 drop-shadow-[0_2px_10px_rgba(0,0,0,1)] hover:text-[#ffb4a8]"
-                  href="/catalogo"
+                  href="/contacto"
                 >
-                  VER ESTE CORTE
+                  CONSULTAR ESTE CORTE
                 </Link>
               </div>
             </div>
@@ -191,68 +196,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section
-        id="ubicacion"
-        className="py-24 px-6 sm:px-10 lg:px-12 bg-background border-t border-[#ffffff08] scroll-mt-28"
-      >
-        <div className="container mx-auto max-w-[1920px]">
-          <div className="mb-10 md:mb-12 lg:mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl">
-              <h2 className="headline-font text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight">
-                Visitá el local
-              </h2>
-              <p className="font-['Space_Grotesk'] mt-3 text-sm uppercase tracking-[0.2em] text-hh-yellow/90">
-                {site.address} · {site.neighborhood}
-              </p>
-              <p className="text-on-surface-variant mt-4 max-w-lg text-base leading-relaxed">
-                En el barrio, con el mismo trato de siempre. Coordiná tu visita o pasá directo por
-                el mostrador.
-              </p>
-            </div>
-            <a
-              className="inline-flex w-fit items-center gap-2 text-hh-yellow headline-font text-sm font-bold tracking-widest uppercase border-b border-hh-yellow/70 pb-1 hover:text-[#fff9ef] hover:border-[#fff9ef] transition-colors"
-              href={site.mapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name="directions" className="text-base" />
-              Cómo llegar
-            </a>
-          </div>
-          <div className="flex flex-col gap-8 lg:gap-10 lg:flex-row lg:items-stretch">
-            <div className="relative min-h-[300px] h-[360px] sm:min-h-[380px] lg:h-auto lg:min-h-[min(70vh,560px)] lg:flex-1 overflow-hidden rounded-[1.75rem] bg-surface-container-highest shadow-[0_28px_80px_rgba(0,0,0,0.4)] ring-1 ring-white/[0.07]">
-              <iframe
-                title="Mapa: Frigorífico H&H, Rodo 6483, Mataderos"
-                className="absolute inset-0 w-full h-full border-0 grayscale-[0.12] contrast-[1.02]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                src={site.mapsEmbed}
-              />
-            </div>
-            <div className="relative flex min-h-[400px] flex-col overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#161616] via-[#0c0c0c] to-[#060606] shadow-[0_28px_80px_rgba(0,0,0,0.35)] ring-1 ring-white/[0.07] lg:flex-1 group">
-              <div className="flex flex-1 min-h-0 items-center justify-center px-6 py-10 sm:px-10 sm:py-12 lg:py-10 min-h-[260px]">
-                <Image
-                  alt="Entrada del Frigorífico H&H"
-                  className="h-auto w-full max-h-[min(68vh,620px)] max-w-[min(100%,400px)] rounded-lg object-contain object-center shadow-[0_20px_60px_rgba(0,0,0,0.55)] transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  src="/images/entrada-banner.jpeg"
-                  width={880}
-                  height={1320}
-                />
-              </div>
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#060606] via-[#060606]/80 to-transparent" />
-              <div className="relative z-10 px-7 pb-8 pt-4 sm:px-9 sm:pb-9">
-                <p className="headline-font text-xs tracking-[0.25em] text-hh-yellow font-bold uppercase mb-2">
-                  Nuestra entrada
-                </p>
-                <p className="text-[#fff9ef]/95 text-sm sm:text-base max-w-md leading-relaxed">
-                  Te esperamos en el mostrador para asesorarte y armar tu pedido con el corte que
-                  buscás.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ContactChannels />
+
+      <Locations />
 
       <section className="py-24 px-12 bg-background border-t border-[#ffffff05]">
         <div className="container mx-auto">

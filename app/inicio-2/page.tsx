@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { ContactChannelsIndustrial } from "@/components/ContactChannelsIndustrial";
 import { CoverImage } from "@/components/CoverImage";
 import { Icon } from "@/components/Icon";
+import { LocationsIndustrial } from "@/components/LocationsIndustrial";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -211,54 +213,32 @@ export default function Inicio2Page() {
         </div>
       </section>
 
-      <section className="bg-surface-container-lowest py-24" id="contact">
-        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
-          <div>
-            <Icon name="location_on" className="text-primary-container text-5xl mb-6" />
-            <h4 className="text-xl font-black uppercase mb-4">UBICACIÓN</h4>
-            <p className="text-on-surface-variant font-bold">
-              {site.address}
-              <br />
-              {site.neighborhood}
-            </p>
-            <p className="text-on-surface-variant text-sm mt-3 uppercase tracking-wide">
-              Envíos: {site.shipping}
-            </p>
-          </div>
-          <div>
-            <Icon name="schedule" className="text-primary-container text-5xl mb-6" />
-            <h4 className="text-xl font-black uppercase mb-4">HORARIOS</h4>
-            <p className="text-on-surface-variant font-bold">
-              {site.hoursWeekdaysLabel.toUpperCase()}
-              <br />
-              {site.hoursWeekdays}
-              <br />
-              <span className="mt-3 block">
-                {site.hoursSundayLabel.toUpperCase()}
-                <br />
-                {site.hoursSunday}
-              </span>
-            </p>
-          </div>
-          <div className="flex flex-col justify-start gap-4">
-            <Icon name="call" className="text-primary-container text-5xl mb-2" />
-            <h4 className="text-xl font-black uppercase mb-2">CONTACTO</h4>
-            <a
-              className="text-on-surface-variant font-bold hover:text-white transition-colors"
-              href={site.phoneHref}
-            >
-              {site.phone}
-            </a>
-            <a
-              className="inline-flex w-fit items-center gap-2 border border-white/15 bg-primary-container px-4 py-2.5 text-xs font-black uppercase tracking-widest text-on-primary-container transition-colors hover:bg-[#a30000] sm:px-5 sm:py-3 sm:text-sm"
-              href={site.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name="chat" className="text-[18px] sm:text-xl" />
-              WhatsApp {site.whatsapp}
-            </a>
-          </div>
+      <ContactChannelsIndustrial />
+
+      <LocationsIndustrial />
+
+      <section className="border-t border-white/10 bg-surface-container-lowest py-10 sm:py-12" id="contact">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <a
+            className="text-2xl sm:text-3xl font-black uppercase tracking-tighter hover:text-white transition-colors"
+            href={site.phoneHref}
+          >
+            {site.phone}
+          </a>
+          <p className="text-sm font-bold uppercase tracking-wide text-on-surface-variant">
+            Planta {site.hoursPlant}
+            <span className="mx-2 text-white/20">/</span>
+            Carnicerías {site.hoursCarniceria}
+          </p>
+          <a
+            className="inline-flex w-full md:w-auto items-center justify-center gap-2 bg-primary-container px-6 py-4 text-xs font-black uppercase tracking-widest text-on-primary-container transition-colors hover:bg-[#a30000] sm:text-sm"
+            href={site.whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="chat" className="text-lg" />
+            WhatsApp {site.whatsapp}
+          </a>
         </div>
       </section>
     </main>
